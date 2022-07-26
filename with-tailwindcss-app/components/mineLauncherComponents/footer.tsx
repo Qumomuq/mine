@@ -84,20 +84,20 @@ export default function Footer() {
                     {navigation.main.map((item) => (
                         <div key={item.name} className="px-5 py-2">
                             <Link href={item.href}>
-                            <a  className="text-base text-indigo-400 hover:text-indigo-500">
-                                {item.name}
-                            </a>
-                        </Link>
+                                <a className="text-base text-indigo-400 hover:text-indigo-500">
+                                    {item.name}
+                                </a>
+                            </Link>
                         </div>
                     ))}
                 </nav>
                 <div className="mt-8 flex justify-center space-x-6">
                     {navigation.social.map((item) => (
                         <Link href={item.href}>
-                        <a key={item.name}  className="text-indigo-400 hover:text-indigo-500">
-                            <span className="sr-only">{item.name}</span>
-                            <item.icon className="h-6 w-6" aria-hidden="true"/>
-                        </a>
+                            <a key={item.name} className="text-indigo-400 hover:text-indigo-500">
+                                <span className="sr-only">{item.name}</span>
+                                <item.icon className="h-6 w-6" aria-hidden="true"/>
+                            </a>
                         </Link>
                     ))}
                 </div>

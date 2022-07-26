@@ -2,7 +2,8 @@ import {createContext, useState} from "react";
 import {Popup, PopupContextType} from "@/types/popup";
 
 export const PopupContext = createContext<PopupContextType>({
-    popupObject: {} as Popup, updatePopup(c: Popup): void {}
+    popupObject: {} as Popup, updatePopup(c: Popup): void {
+    }
 });
 
 export const PageFirstInit = (props: { children: any }) => {
