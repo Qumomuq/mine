@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const object = [
     {
         id: 1,
@@ -55,9 +57,9 @@ export default function MenuTable() {
         <div className="bg-gradient-to-l from-[#94bbe9] via-[#bdb3d0] to-[#94bbe9]">
             <ul role="list" className="grid grid-cols-2 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 {object.map((icons) => (
+                    <Link href={icons.value}>
                     <a
                         key={icons.id}
-                        href={icons.value}
                     >
                         <div className="flex-1 flex flex-col p-8 hover:text-gray-700">
 
@@ -82,6 +84,7 @@ export default function MenuTable() {
                             </div>
                         </div>
                     </a>
+                    </Link>
                 ))}
             </ul>
         </div>

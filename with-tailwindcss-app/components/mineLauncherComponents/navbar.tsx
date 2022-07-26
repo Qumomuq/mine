@@ -15,6 +15,7 @@ import {
     XIcon,
 } from '@heroicons/react/outline'
 import {ChevronDownIcon} from '@heroicons/react/solid'
+import Link from "next/link";
 
 const solutions = [
     {
@@ -94,14 +95,15 @@ export default function Navbar() {
                 <div
                     className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
                     <div className="flex justify-start lg:w-0 lg:flex-1">
-
-                        <a href="/">
+                        <Link href={"/"}>
+                        <a >
                             <img
                                 className="h-15 w-auto sm:h-20"
                                 src="pngegg.png"
                                 alt=""
                             />
                         </a>
+                        </Link>
 
                     </div>
                     <div className="-mr-2 -my-2 md:hidden">
@@ -146,9 +148,9 @@ export default function Navbar() {
                                                 className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                                                 <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                                                     {solutions.map((item) => (
+                                                        <Link href={item.href}>
                                                         <a
                                                             key={item.name}
-                                                            href={item.href}
                                                             className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
                                                         >
                                                             <item.icon className="flex-shrink-0 h-6 w-6 text-indigo-600"
@@ -158,14 +160,15 @@ export default function Navbar() {
                                                                 <p className="mt-1 text-sm text-gray-500">{item.description}</p>
                                                             </div>
                                                         </a>
+                                                        </Link>
                                                     ))}
                                                 </div>
                                                 <div
                                                     className="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
                                                     {callsToAction.map((item) => (
                                                         <div key={item.name} className="flow-root">
+                                                            <Link href={item.href}>
                                                             <a
-                                                                href={item.href}
                                                                 className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
                                                             >
                                                                 <item.icon
@@ -173,6 +176,7 @@ export default function Navbar() {
                                                                     aria-hidden="true"/>
                                                                 <span className="ml-3">{item.name}</span>
                                                             </a>
+                                                            </Link>
                                                         </div>
                                                     ))}
                                                 </div>
@@ -182,19 +186,24 @@ export default function Navbar() {
                                 </>
                             )}
                         </Popover>
-
-                        <a href="profile"
+                        <Link href="profile">
+                        <a
                            className="group bg-gray-800 text-indigo-300 outline-none ring-2 ring-offset-2 ring-indigo-500 w-32 px-5 py-2 rounded-md inline-flex justify-center text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 hover:text-indigo-500">
                             Your Profile
                         </a>
-                        <a href="shop"
+                        </Link>
+                        <Link href="shop">
+                        <a
                            className="group bg-gray-800 text-indigo-300 outline-none ring-2 ring-offset-2 ring-indigo-500 w-32 px-5 py-2 rounded-md inline-flex justify-center text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 hover:text-indigo-500">
                             Shop
                         </a>
-                        <a href="menu"
+                        </Link>
+                            <Link href="menu">
+                        <a
                            className="group bg-gray-800 text-indigo-300 outline-none ring-2 ring-offset-2 ring-indigo-500 w-32 px-5 py-2 rounded-md inline-flex justify-center text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 hover:text-indigo-500">
                             Menu
                         </a>
+                            </Link>
 
                         <Popover className="relative">
                             {({open}) => (
@@ -230,9 +239,9 @@ export default function Navbar() {
                                                 className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                                                 <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                                                     {resources.map((item) => (
+                                                        <Link href={item.href}>
                                                         <a
                                                             key={item.name}
-                                                            href={item.href}
                                                             className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
                                                         >
                                                             <item.icon className="flex-shrink-0 h-6 w-6 text-indigo-600"
@@ -242,6 +251,7 @@ export default function Navbar() {
                                                                 <p className="mt-1 text-sm text-gray-500">{item.description}</p>
                                                             </div>
                                                         </a>
+                                                        </Link>
                                                     ))}
                                                 </div>
                                                 <div className="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
@@ -260,11 +270,13 @@ export default function Navbar() {
                                                         </ul>
                                                     </div>
                                                     <div className="mt-5 text-sm">
+                                                        <Link href="#">
                                                         <a href="#"
                                                            className="font-medium text-indigo-600 hover:text-indigo-500">
                                                             {' '}
                                                             View all posts <span aria-hidden="true">&rarr;</span>
                                                         </a>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                             </div>
@@ -275,16 +287,20 @@ export default function Navbar() {
                         </Popover>
                     </Popover.Group>
                     <div className="hidden md:flex items-center  justify-end md:flex-1 lg:w-0">
-                        <a href="#"
+                        <Link href="#">
+                        <a
                            className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
                             Sign in
                         </a>
+                        </Link>
+                        <Link href="#">
                         <a
                             href="#"
                             className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
                         >
                             Sign up
                         </a>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -322,9 +338,9 @@ export default function Navbar() {
                             <div className="mt-6">
                                 <nav className="grid gap-y-8">
                                     {solutions.map((item) => (
+                                        <Link href={item.href}>
                                         <a
                                             key={item.name}
-                                            href={item.href}
                                             className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                                         >
                                             <item.icon className="flex-shrink-0 h-6 w-6 text-indigo-600"
@@ -332,41 +348,50 @@ export default function Navbar() {
                                             <span
                                                 className="ml-3 text-base font-medium text-gray-900">{item.name}</span>
                                         </a>
+                                        </Link>
                                     ))}
                                 </nav>
                             </div>
                         </div>
                         <div className="py-6 px-5 space-y-6">
                             <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                                <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-700">
+                                <Link href="#">
+                                <a  className="text-base font-medium text-gray-900 hover:text-gray-700">
                                     Pricing
                                 </a>
-
+                                </Link>
+                                <Link href="#">
                                 <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-700">
                                     Docs
                                 </a>
+                                </Link>
                                 {resources.map((item) => (
+                                    <Link href={item.href}>
                                     <a
                                         key={item.name}
-                                        href={item.href}
                                         className="text-base font-medium text-gray-900 hover:text-gray-700"
                                     >
                                         {item.name}
                                     </a>
+                                    </Link>
                                 ))}
                             </div>
                             <div>
+                                <Link href="#">
                                 <a
                                     href="#"
                                     className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
                                 >
                                     Sign up
                                 </a>
+                                </Link>
                                 <p className="mt-6 text-center  font-medium text-gray-500">
                                     Existing customer?{' '}
+                                    <Link href="#">
                                     <a href="#" className="text-indigo-500 hover:text-indigo-500">
                                         Sign in
                                     </a>
+                                    </Link>
                                 </p>
                             </div>
                         </div>

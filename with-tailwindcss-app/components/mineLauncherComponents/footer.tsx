@@ -1,4 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
+import Link from "next/link";
+
 const navigation = {
     main: [
         {name: 'About', href: '#'},
@@ -6,7 +8,7 @@ const navigation = {
         {name: 'Jobs', href: '#'},
         {name: 'Press', href: '#'},
         {name: 'Accessibility', href: '#'},
-        {name: 'Partners', href: '#'},
+        {name: 'Partners', href: '/shop'},
     ],
     social: [
         {
@@ -81,18 +83,22 @@ export default function Footer() {
                 <nav className="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
                     {navigation.main.map((item) => (
                         <div key={item.name} className="px-5 py-2">
-                            <a href={item.href} className="text-base text-indigo-400 hover:text-indigo-500">
+                            <Link href={item.href}>
+                            <a  className="text-base text-indigo-400 hover:text-indigo-500">
                                 {item.name}
                             </a>
+                        </Link>
                         </div>
                     ))}
                 </nav>
                 <div className="mt-8 flex justify-center space-x-6">
                     {navigation.social.map((item) => (
-                        <a key={item.name} href={item.href} className="text-indigo-400 hover:text-indigo-500">
+                        <Link href={item.href}>
+                        <a key={item.name}  className="text-indigo-400 hover:text-indigo-500">
                             <span className="sr-only">{item.name}</span>
                             <item.icon className="h-6 w-6" aria-hidden="true"/>
                         </a>
+                        </Link>
                     ))}
                 </div>
                 <p className="mt-8 text-center text-base text-indigo-400">&copy; 2020 Workflow, Inc. All rights
