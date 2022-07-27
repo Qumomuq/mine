@@ -8,8 +8,11 @@ import {
     createOrbitControls,
     SkinViewer as SkinRenderer,
     WalkingAnimation,
-    IdleAnimation
+    IdleAnimation,
+    RunningAnimation,
+    FlyingAnimation
 } from 'skinview3d';
+import {router} from "next/client";
 
 //     const x:HTMLCanvasElement | null =document.getElementById("skin_container") as HTMLCanvasElement
 //     let skinViewer = new skinview3d.SkinViewer({
@@ -85,15 +88,17 @@ import {
 // const currentSong = useContext(Song);
 // const canvas = useRef<HTMLCanvasElement>();
 export default function Skin() {
-    //
     const defaultSkin = '/skin.png'
-
 
     const canvas = useRef<HTMLCanvasElement>();
     const [skin, setSkin] = useState(defaultSkin)
+    const [walk, setWalk] = useState(true)
+    const [run, setRun] = useState(false)
+    const [fly, setFly] = useState(false)
 
-    function onSkinChange() {
-        setSkin([...e.target.files].toString());
+    function onSkinChange(e: any) {
+        setSkin("/" + e.target.files[0].name);
+        console.log(e.target.files[0].name)
     }
 
 
@@ -103,40 +108,73 @@ export default function Skin() {
 
         const renderer = new SkinRenderer({
             canvas: canvas.current,
-            width: 300,
+            width: 450,
             height: 450,
             skin,
             cape,
-            zoom: 0.9
+            zoom: 0.7
         });
-
 
         const control = createOrbitControls(renderer);
 
         control.enableRotate = true;
         control.enableZoom = false;
+        renderer.fov=70
+        renderer.loadPanorama('/panorama.png')
 
-
-        renderer.animations.add(WalkingAnimation);
+        if (walk) {
+            renderer.animations.add(WalkingAnimation)
+        } else if (run) {
+            renderer.animations.add(RunningAnimation)
+        } else if (fly) {
+            renderer.animations.add(FlyingAnimation)
+        }
         renderer.animations.add(IdleAnimation);
-    }, []);
-
+    }, [skin, walk, run, fly]);
 
     return (
         <>
             <div>
                 <div className="items-center justify-between m-8">
-                    <canvas ref={canvas} className="skin bg-indigo-200 rounded-2xl "/>
+                    <canvas ref={canvas} className="rounded-2xl "/>
                     <input
                         type={"file"}
                         name="mySkin"
                         onChange={onSkinChange}
                     />
+                </div>
+                <div className="flex ">
+                    None<input type={"radio"} onClick={() => {
+                    setRun(false)
+                    setWalk(false)
+                    setFly(false)
+                }}/>
+                    Walk<input type={"radio"} onClick={() => {
+                    setRun(false)
+                    setWalk(true)
+                    setFly(false)
+                }}/>
+                    Run<input type={"radio"} onClick={() => {
+                    setRun(true)
+                    setWalk(false)
+                    setFly(false)
+                }}/>
+                    Fly<input type={"radio"} onClick={() => {
+                    setRun(false)
+                    setWalk(false)
+                    setFly(true)
+                }}/>
+                </div>
+
+                <div className="items-center justify-between m-8">
                     <button
                         onClick={() => {
                             setSkin(defaultSkin)
+                            setRun(false)
+                            setWalk(false)
+                            setFly(false)
                         }}
-                        className={"bg-indigo-300"}
+                        className={"bg-red-300 w-32 rounded-2xl"}
                     >Remove
                     </button>
                 </div>
