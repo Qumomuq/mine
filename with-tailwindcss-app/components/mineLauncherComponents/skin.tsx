@@ -119,7 +119,7 @@ export default function Skin() {
 
         control.enableRotate = true;
         control.enableZoom = false;
-        renderer.fov=70
+        renderer.fov = 70
         renderer.loadPanorama('/panorama.png')
 
         if (walk) {

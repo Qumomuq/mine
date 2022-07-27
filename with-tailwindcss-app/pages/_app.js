@@ -3,6 +3,8 @@ import {Provider} from 'react-redux'
 import {useStore} from '../core/store'
 import {ChakraProvider} from '@chakra-ui/react'
 import {PageFirstInit} from "../core/services/PageFirstInit";
+import Navbar from "../components/mineLauncherComponents/navbar";
+import Footer from "../components/mineLauncherComponents/footer";
 
 export default function MyApp({Component, pageProps}) {
     const store = useStore(pageProps.initialReduxState)
@@ -10,9 +12,11 @@ export default function MyApp({Component, pageProps}) {
         <Provider store={store}>
             <ChakraProvider>
                 <PageFirstInit>
-
-                    <Component {...pageProps} />
-
+                    <Navbar/>
+                    <div className="">
+                        <Component {...pageProps} />
+                    </div>
+                    <Footer/>
                 </PageFirstInit>
             </ChakraProvider>
         </Provider>

@@ -8,9 +8,7 @@ function Index() {
 
     return (<>
             <Flex direction="column" bg={mode('gray.100', 'gray.800')} minHeight="100vh">
-                <Navbar/>
                 <MainPage/>
-                <Footer/>
             </Flex>
         </>
     )
