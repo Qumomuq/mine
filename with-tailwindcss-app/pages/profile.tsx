@@ -1,8 +1,5 @@
 import {Flex, useColorModeValue as mode} from "@chakra-ui/react";
-import Navbar from "@/components/mineLauncherComponents/navbar";
-import Footer from "@/components/mineLauncherComponents/footer";
 import Skin from "@/components/mineLauncherComponents/skin";
-import {SkinSelection} from "@/components/mineLauncherComponents/skinSelection";
 
 function Profile() {
 

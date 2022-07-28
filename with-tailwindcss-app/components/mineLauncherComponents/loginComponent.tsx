@@ -62,7 +62,6 @@ export function LoginComponent() {
                                 <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Войти в личный
                                     кабинет</h2>
                             </div>
-
                             <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
                                 <div className="border-2 border-blue-800 py-8 px-4 shadow sm:rounded-lg sm:px-10">
                                     <div className="space-y-6">
