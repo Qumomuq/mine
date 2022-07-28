@@ -8,7 +8,11 @@ function Index() {
 
     return (<>
             <Flex direction="column" bg={mode('gray.100', 'gray.800')} minHeight="100vh">
-                <MainPage/>
+                <div className="bg-gradient-to-l from-[#94bbe9] via-[#bdb3d0] to-[#94bbe9]">
+                    <div className={"container"}>
+                        <MainPage/>
+                    </div>
+                </div>
             </Flex>
         </>
     )
