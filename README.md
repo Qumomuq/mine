@@ -1,1 +1,1 @@
-# mine
+# Minecraft server website
